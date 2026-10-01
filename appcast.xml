@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  OFFY app update feed (read by the app's `upgrader` package at launch and on resume).
+  App URL: https://raw.githubusercontent.com/mobileodox/offy-app-update/main/appcast.xml
+  GitHub may cache this file for up to ~5 minutes after you commit.
+
+  HOW IT WORKS
+  - Each <item> is one release for one platform (sparkle:os="ios" or "android").
+  - sparkle:version = the app version AND build, exactly like pubspec.yaml: 1.0.2+7
+  - The app compares its own "version+build" with the HIGHEST item for its platform.
+
+  NORMAL UPDATE (user can tap "Maybe later"; asked again after 1 day)
+  - Add a new <item> with a higher sparkle:version. Do NOT add <sparkle:tags>.
+
+  FORCE UPDATE (full screen, no way to skip until the user updates)
+  - Add <sparkle:tags><sparkle:criticalUpdate/></sparkle:tags> to an item.
+  - Everyone on a LOWER version+build than that item is forced to update.
+
+  MINIMUM SUPPORTED BUILD
+  - The highest item tagged criticalUpdate IS the minimum supported build.
+    Example: critical item 1.0.2+7 -> 1.0.1+6 and older are blocked, 1.0.2+7 and newer are fine.
+  - To force an old build but only *suggest* the newest one: keep the critical tag on the
+    older (minimum) item and add the newest item without the tag.
+
+  OTHER FIELDS
+  - <description>: "What's new" in the app, one point per line (a leading "-" is removed).
+  - <enclosure url>: where "Update now" goes.
+      iOS App Store: https://apps.apple.com/app/id6817767534
+      iOS TestFlight (testers only, used while the app is not on the App Store):
+        itms-beta://beta.itunes.apple.com/v1/app/6817767534
+      Android Play Store: https://play.google.com/store/apps/details?id=com.offy.odox
+  - Optional <sparkle:minimumSystemVersion>: lowest OS version that may see the item.
+
+  Release checklist: upload the build -> wait until it is live for users -> then add the item here.
+  Never list a version users cannot download yet.
+-->
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
+  <channel>
+    <title>OFFY - Odoo Employee App</title>
+
+    <!-- ===================== iOS ===================== -->
+    <item>
+      <title>Version 1.0.1 (6)</title>
+      <description>
+        - Redesigned login, splash screen and app icon.
+        - No duplicate records when the connection drops while submitting.
+        - Time Off log shows clean dates.
+      </description>
+      <pubDate>Thu, 01 Oct 2026 12:00:00 +0530</pubDate>
+      <sparkle:version>1.0.1+6</sparkle:version>
+      <enclosure url="itms-beta://beta.itunes.apple.com/v1/app/6817767534" sparkle:os="ios" />
+      <!-- FORCE UPDATE: uncomment the next line to make this the minimum build. -->
+      <!-- <sparkle:tags><sparkle:criticalUpdate/></sparkle:tags> -->
+    </item>
+
+    <!-- =================== Android =================== -->
+    <item>
+      <title>Version 1.0.1 (6)</title>
+      <description>
+        - Redesigned login, splash screen and app icon.
+        - No duplicate records when the connection drops while submitting.
+        - Time Off log shows clean dates.
+      </description>
+      <pubDate>Thu, 01 Oct 2026 12:00:00 +0530</pubDate>
+      <sparkle:version>1.0.1+6</sparkle:version>
+      <enclosure url="https://play.google.com/store/apps/details?id=com.offy.odox" sparkle:os="android" />
+      <!-- FORCE UPDATE: uncomment the next line to make this the minimum build. -->
+      <!-- <sparkle:tags><sparkle:criticalUpdate/></sparkle:tags> -->
+    </item>
+
+    <!--
+      TEMPLATE - copy above the platform's current item and edit:
+      <item>
+        <title>Version 1.0.2 (7)</title>
+        <description>
+          - First change
+          - Second change
+        </description>
+        <pubDate>Mon, 12 Oct 2026 10:00:00 +0530</pubDate>
+        <sparkle:version>1.0.2+7</sparkle:version>
+        <enclosure url="https://apps.apple.com/app/id6817767534" sparkle:os="ios" />
+        <sparkle:tags><sparkle:criticalUpdate/></sparkle:tags>   (only for a force update)
+      </item>
+    -->
+  </channel>
+</rss>
