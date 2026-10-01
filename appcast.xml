@@ -6,7 +6,7 @@
 
   HOW IT WORKS
   - Each <item> is one release for one platform (sparkle:os="ios" or "android").
-  - sparkle:version = the app version AND build, exactly like pubspec.yaml: 1.0.2+7
+  - sparkle:version = the app version AND build, exactly like pubspec.yaml: 1.0.1+2
   - The app compares its own "version+build" with the HIGHEST item for its platform.
 
   NORMAL UPDATE (user can tap "Maybe later"; asked again after 1 day)
@@ -18,7 +18,7 @@
 
   MINIMUM SUPPORTED BUILD
   - The highest item tagged criticalUpdate IS the minimum supported build.
-    Example: critical item 1.0.2+7 -> 1.0.1+6 and older are blocked, 1.0.2+7 and newer are fine.
+    Example: critical item 1.0.1+2 -> 1.0.0+1 and older are blocked, 1.0.1+2 and newer are fine.
   - To force an old build but only *suggest* the newest one: keep the critical tag on the
     older (minimum) item and add the newest item without the tag.
 
@@ -40,14 +40,12 @@
 
     <!-- ===================== iOS ===================== -->
     <item>
-      <title>Version 1.0.1 (6)</title>
+      <title>Version 1.0.0 (1)</title>
       <description>
-        - Redesigned login, splash screen and app icon.
-        - No duplicate records when the connection drops while submitting.
-        - Time Off log shows clean dates.
+        - First release of OFFY.
       </description>
       <pubDate>Thu, 01 Oct 2026 12:00:00 +0530</pubDate>
-      <sparkle:version>1.0.1+6</sparkle:version>
+      <sparkle:version>1.0.0+1</sparkle:version>
       <enclosure url="itms-beta://beta.itunes.apple.com/v1/app/6817767534" sparkle:os="ios" />
       <!-- FORCE UPDATE: uncomment the next line to make this the minimum build. -->
       <!-- <sparkle:tags><sparkle:criticalUpdate/></sparkle:tags> -->
@@ -55,14 +53,12 @@
 
     <!-- =================== Android =================== -->
     <item>
-      <title>Version 1.0.1 (6)</title>
+      <title>Version 1.0.0 (1)</title>
       <description>
-        - Redesigned login, splash screen and app icon.
-        - No duplicate records when the connection drops while submitting.
-        - Time Off log shows clean dates.
+        - First release of OFFY.
       </description>
       <pubDate>Thu, 01 Oct 2026 12:00:00 +0530</pubDate>
-      <sparkle:version>1.0.1+6</sparkle:version>
+      <sparkle:version>1.0.0+1</sparkle:version>
       <enclosure url="https://play.google.com/store/apps/details?id=com.offy.odox" sparkle:os="android" />
       <!-- FORCE UPDATE: uncomment the next line to make this the minimum build. -->
       <!-- <sparkle:tags><sparkle:criticalUpdate/></sparkle:tags> -->
@@ -71,13 +67,13 @@
     <!--
       TEMPLATE - copy above the platform's current item and edit:
       <item>
-        <title>Version 1.0.2 (7)</title>
+        <title>Version 1.0.1 (2)</title>
         <description>
           - First change
           - Second change
         </description>
         <pubDate>Mon, 12 Oct 2026 10:00:00 +0530</pubDate>
-        <sparkle:version>1.0.2+7</sparkle:version>
+        <sparkle:version>1.0.1+2</sparkle:version>
         <enclosure url="https://apps.apple.com/app/id6817767534" sparkle:os="ios" />
         <sparkle:tags><sparkle:criticalUpdate/></sparkle:tags>   (only for a force update)
       </item>
